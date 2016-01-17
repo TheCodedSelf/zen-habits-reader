@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="LastPostCheck" representedClassName="LastPostCheck" syncable="YES">
+        <attribute name="lastCheckDate" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="Month" representedClassName="Month" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="monthOfYear" attributeType="String" syncable="YES"/>
+        <relationship name="posts" toMany="YES" deletionRule="Nullify" destinationEntity="PostHeader" inverseName="month" inverseEntity="PostHeader" syncable="YES"/>
+        <relationship name="year" maxCount="1" deletionRule="Nullify" destinationEntity="Year" inverseName="months" inverseEntity="Year" syncable="YES"/>
+    </entity>
+    <entity name="PostHeader" representedClassName="PostHeader" syncable="YES">
+        <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="isBookmarked" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isFavourite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isNew" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isRead" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="postID" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
+        <relationship name="month" maxCount="1" deletionRule="Nullify" destinationEntity="Month" inverseName="posts" inverseEntity="Month" syncable="YES"/>
+    </entity>
+    <entity name="Year" representedClassName="Year" syncable="YES">
+        <attribute name="theYear" attributeType="String" syncable="YES"/>
+        <relationship name="months" toMany="YES" deletionRule="Nullify" destinationEntity="Month" inverseName="year" inverseEntity="Month" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LastPostCheck" positionX="-38" positionY="180" width="128" height="58"/>
+        <element name="Month" positionX="-297" positionY="162" width="128" height="103"/>
+        <element name="PostHeader" positionX="-54" positionY="-18" width="128" height="178"/>
+        <element name="Year" positionX="-279" positionY="-9" width="128" height="73"/>
+    </elements>
+</model>

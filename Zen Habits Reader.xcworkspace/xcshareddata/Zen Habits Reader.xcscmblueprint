@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4C07770C94E40F23A83821139758D3BA77A84164",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C98F34640CDAF8C591AEB91EEF768A6198C4416E" : 0,
+    "4C07770C94E40F23A83821139758D3BA77A84164" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3DA6EC58-0EB2-4D3F-B972-D592E6AF6412",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C98F34640CDAF8C591AEB91EEF768A6198C4416E" : "Zen%20Habits%20Reader\/hpple\/",
+    "4C07770C94E40F23A83821139758D3BA77A84164" : "Zen%20Habits%20Reader\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Zen Habits Reader",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Zen Habits Reader.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:krush42\/zen-habits-reader.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C07770C94E40F23A83821139758D3BA77A84164"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/topfunky\/hpple.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C98F34640CDAF8C591AEB91EEF768A6198C4416E"
+    }
+  ]
+}

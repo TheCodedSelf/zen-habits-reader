@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController">
+            <connections>
+                <outlet property="footerView" destination="iN0-l3-epB" id="7zl-Yc-aKu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Keegan Rush" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-J8-Djt">
+                    <rect key="frame" x="206" y="9.5" width="188.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.27318102904040409" green="0.27318102904040409" blue="0.27318102904040409" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3dv-J8-Djt" secondAttribute="bottom" constant="10" id="F3s-aN-YdW"/>
+                <constraint firstItem="3dv-J8-Djt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LAU-HV-LRl"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3dv-J8-Djt" secondAttribute="trailing" constant="10" id="SrV-Ef-aUz"/>
+                <constraint firstItem="3dv-J8-Djt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="kSf-Co-H6j"/>
+                <constraint firstItem="3dv-J8-Djt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="tkU-P3-HY2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="kSf-Co-H6j"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="375" y="-83"/>
+        </view>
+    </objects>
+</document>
