@@ -13,7 +13,5 @@
 
 @property(nonatomic, strong) NSString *currentYearString;
 @property(nonatomic, strong) NSString *currentMonthString;
-//@property (nonatomic, retain) NSFetchedResultsController
-//*fetchedResultsController;
 
 @end
