@@ -11,6 +11,7 @@
 @implementation PostListCollectionViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
