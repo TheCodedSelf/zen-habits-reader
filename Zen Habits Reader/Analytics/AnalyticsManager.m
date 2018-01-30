@@ -21,6 +21,9 @@ static NSString* const ClickedAction = @"Other";
 
 + (void)performInitialSetup
     {
+#if DEBUG
+        return;
+#else
     // Configure tracker from GoogleService-Info.plist.
     NSError *configureError;
     [[GGLContext sharedInstance] configureWithError:&configureError];
@@ -29,16 +32,18 @@ static NSString* const ClickedAction = @"Other";
     // Optional: configure GAI options.
     GAI *gai = [GAI sharedInstance];
     gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+#endif
     }
 
 + (void)reportNavigationToScreen:(NSString*)name
     {
 #if DEBUG
     return;
-#endif
+#else
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:name];
     [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+#endif
     }
 
 + (void)reportIAPPurchased
@@ -90,12 +95,14 @@ static NSString* const ClickedAction = @"Other";
     {
 #if DEBUG
     return;
-#endif
+#else
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                           action:action
                                                            label:label
-                                                           value:@1] build]];
+                                                           value:@1]
+                   build]];
+#endif
     }
 
 @end
