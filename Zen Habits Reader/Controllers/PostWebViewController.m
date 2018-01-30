@@ -47,7 +47,7 @@ NSString *const PostToProblemSegue = @"PostToProblemSegue";
                                            selector:@selector(loadPost)
                                              object:nil];
 
-  [[[KGNConcurrencyManager sharedInstance] backgroundOperationQueue]
+  [[KGNConcurrencyManager sharedInstance].backgroundOperationQueue
       addOperation:loadOperation];
   [AnalyticsManager reportNavigationToScreen:@"Post Web"];
 }
@@ -79,7 +79,7 @@ NSString *const PostToProblemSegue = @"PostToProblemSegue";
                     decisionHandler:
                         (void (^)(WKNavigationActionPolicy))decisionHandler {
   if (navigationAction.navigationType == WKNavigationTypeLinkActivated) {
-    [[UIApplication sharedApplication] openURL:[navigationAction.request URL]];
+    [[UIApplication sharedApplication] openURL:(navigationAction.request).URL];
     decisionHandler(WKNavigationActionPolicyCancel);
   } else {
     decisionHandler(WKNavigationActionPolicyAllow);
@@ -110,7 +110,7 @@ preparation before navigation
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC),
                    dispatch_get_main_queue(), ^{
                      self.currentPostHeader.isRead =
-                         [NSNumber numberWithBool:NO];
+                         @NO;
                      [[PersistenceManager sharedInstance] saveContext];
                    });
     [[PersistenceManager sharedInstance] saveContext];

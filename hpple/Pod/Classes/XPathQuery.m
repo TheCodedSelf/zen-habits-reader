@@ -21,15 +21,13 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
 {
     NSMutableDictionary *resultForNode = [NSMutableDictionary dictionary];
     if (currentNode->name) {
-        NSString *currentNodeContent = [NSString stringWithCString:(const char *)currentNode->name
-                                                          encoding:NSUTF8StringEncoding];
+        NSString *currentNodeContent = @((const char *)currentNode->name);
         resultForNode[@"nodeName"] = currentNodeContent;
     }
 
     xmlChar *nodeContent = xmlNodeGetContent(currentNode);
     if (nodeContent != NULL) {
-        NSString *currentNodeContent = [NSString stringWithCString:(const char *)nodeContent
-                                                          encoding:NSUTF8StringEncoding];
+        NSString *currentNodeContent = @((const char *)nodeContent);
         if ([resultForNode[@"nodeName"] isEqual:@"text"] && parentResult) {
             if (parentContent) {
                 NSCharacterSet *charactersToTrim = [NSCharacterSet whitespaceAndNewlineCharacterSet];
@@ -51,8 +49,7 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
         NSMutableArray *attributeArray = [NSMutableArray array];
         while (attribute) {
             NSMutableDictionary *attributeDictionary = [NSMutableDictionary dictionary];
-            NSString *attributeName = [NSString stringWithCString:(const char *)attribute->name
-                                                       encoding:NSUTF8StringEncoding];
+            NSString *attributeName = @((const char *)attribute->name);
             if (attributeName) {
                 attributeDictionary[@"attributeName"] = attributeName;
             }
@@ -64,13 +61,13 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
                 }
             }
 
-            if ([attributeDictionary count] > 0) {
+            if (attributeDictionary.count > 0) {
                 [attributeArray addObject:attributeDictionary];
             }
             attribute = attribute->next;
         }
 
-        if ([attributeArray count] > 0) {
+        if (attributeArray.count > 0) {
             resultForNode[@"nodeAttributeArray"] = attributeArray;
         }
     }
@@ -85,14 +82,14 @@ NSDictionary *DictionaryForNode(xmlNodePtr currentNode, NSMutableDictionary *par
             }
             childNode = childNode->next;
         }
-        if ([childContentArray count] > 0) {
+        if (childContentArray.count > 0) {
             resultForNode[@"nodeChildArray"] = childContentArray;
         }
     }
 
     xmlBufferPtr buffer = xmlBufferCreate();
     xmlNodeDump(buffer, currentNode->doc, currentNode, 0, 0);
-    NSString *rawContent = [NSString stringWithCString:(const char *)buffer->content encoding:NSUTF8StringEncoding];
+    NSString *rawContent = @((const char *)buffer->content);
     if (rawContent != nil) {
         resultForNode[@"raw"] = rawContent;
     }
@@ -159,7 +156,7 @@ NSArray *PerformHTMLXPathQueryWithEncoding(NSData *document, NSString *query,NSS
     /* Load XML document */
     const char *encoded = encoding ? [encoding cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
 
-    doc = htmlReadMemory([document bytes], (int)[document length], "", encoded, HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR);
+    doc = htmlReadMemory(document.bytes, (int)document.length, "", encoded, HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR);
     if (doc == NULL) {
         NSLog(@"Unable to parse.");
         return nil;
@@ -182,7 +179,7 @@ NSArray *PerformXMLXPathQueryWithEncoding(NSData *document, NSString *query,NSSt
     /* Load XML document */
     const char *encoded = encoding ? [encoding cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
 
-    doc = xmlReadMemory([document bytes], (int)[document length], "", encoded, XML_PARSE_RECOVER);
+    doc = xmlReadMemory(document.bytes, (int)document.length, "", encoded, XML_PARSE_RECOVER);
     
     if (doc == NULL) {
         NSLog(@"Unable to parse.");

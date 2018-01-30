@@ -55,7 +55,7 @@ static NSString * const TFHppleTextNodeName            = @"text";
 @synthesize parent;
 
 
-- (id) initWithNode:(NSDictionary *) theNode isXML:(BOOL)isDataXML withEncoding:(NSString *)theEncoding
+- (instancetype) initWithNode:(NSDictionary *) theNode isXML:(BOOL)isDataXML withEncoding:(NSString *)theEncoding
 {
   if (!(self = [super init]))
     return nil;
@@ -76,24 +76,24 @@ static NSString * const TFHppleTextNodeName            = @"text";
 
 - (NSString *)raw
 {
-    return [node objectForKey:@"raw"];
+    return node[@"raw"];
 }
 
 - (NSString *) content
 {
-  return [node objectForKey:TFHppleNodeContentKey];
+  return node[TFHppleNodeContentKey];
 }
 
 
 - (NSString *) tagName
 {
-  return [node objectForKey:TFHppleNodeNameKey];
+  return node[TFHppleNodeNameKey];
 }
 
 - (NSArray *) children
 {
   NSMutableArray *children = [NSMutableArray array];
-  for (NSDictionary *child in [node objectForKey:TFHppleNodeChildrenKey]) {
+  for (NSDictionary *child in node[TFHppleNodeChildrenKey]) {
       TFHppleElement *element = [TFHppleElement hppleElementWithNode:child isXML:isXML withEncoding:encoding];
       element.parent = self;
       [children addObject:element];
@@ -105,7 +105,7 @@ static NSString * const TFHppleTextNodeName            = @"text";
 {
   NSArray * children = self.children;
   if (children.count)
-    return [children objectAtIndex:0];
+    return children[0];
   return nil;
 }
 
@@ -113,10 +113,9 @@ static NSString * const TFHppleTextNodeName            = @"text";
 - (NSDictionary *) attributes
 {
   NSMutableDictionary * translatedAttributes = [NSMutableDictionary dictionary];
-  for (NSDictionary * attributeDict in [node objectForKey:TFHppleNodeAttributeArrayKey]) {
-      if ([attributeDict objectForKey:TFHppleNodeContentKey] && [attributeDict objectForKey:TFHppleNodeAttributeNameKey]) {
-          [translatedAttributes setObject:[attributeDict objectForKey:TFHppleNodeContentKey]
-                                   forKey:[attributeDict objectForKey:TFHppleNodeAttributeNameKey]];
+  for (NSDictionary * attributeDict in node[TFHppleNodeAttributeArrayKey]) {
+      if (attributeDict[TFHppleNodeContentKey] && attributeDict[TFHppleNodeAttributeNameKey]) {
+          translatedAttributes[attributeDict[TFHppleNodeAttributeNameKey]] = attributeDict[TFHppleNodeContentKey];
       }
   }
   return translatedAttributes;
@@ -124,17 +123,17 @@ static NSString * const TFHppleTextNodeName            = @"text";
 
 - (NSString *) objectForKey:(NSString *) theKey
 {
-  return [[self attributes] objectForKey:theKey];
+  return self.attributes[theKey];
 }
 
 - (id) description
 {
-  return [node description];
+  return node.description;
 }
 
 - (BOOL)hasChildren
 {
-    if ([node objectForKey:TFHppleNodeChildrenKey])
+    if (node[TFHppleNodeChildrenKey])
         return YES;
     else
         return NO;
@@ -180,7 +179,7 @@ static NSString * const TFHppleTextNodeName            = @"text";
     
     for (TFHppleElement* child in self.children)
     {
-        if ([[child objectForKey:@"class"] isEqualToString:className])
+        if ([child[@"class"] isEqualToString:className])
             [matches addObject:child];
     }
     
@@ -191,7 +190,7 @@ static NSString * const TFHppleTextNodeName            = @"text";
 {
     for (TFHppleElement* child in self.children)
     {
-        if ([[child objectForKey:@"class"] isEqualToString:className])
+        if ([child[@"class"] isEqualToString:className])
             return child;
     }
     
@@ -237,7 +236,7 @@ static NSString * const TFHppleTextNodeName            = @"text";
 // Custom keyed subscripting
 - (id)objectForKeyedSubscript:(id)key
 {
-    return [self objectForKey:key];
+    return self[key];
 }
 
 @end

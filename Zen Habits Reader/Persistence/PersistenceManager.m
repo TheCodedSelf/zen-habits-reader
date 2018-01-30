@@ -27,7 +27,7 @@
 }
 
 - (void)contextHasChanged:(NSNotification *)notification {
-  if ([notification object] == [self managedObjectContext])
+  if (notification.object == self.managedObjectContext)
     return;
 
   if (![NSThread isMainThread]) {
@@ -37,7 +37,7 @@
     return;
   }
 
-  [[self managedObjectContext]
+  [self.managedObjectContext
       mergeChangesFromContextDidSaveNotification:notification];
   [self saveContext];
 }
@@ -52,11 +52,11 @@
     return _managedObjectContext;
   }
 
-  NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+  NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
   if (coordinator != nil) {
     _managedObjectContext = [[NSManagedObjectContext alloc]
         initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    _managedObjectContext.persistentStoreCoordinator = coordinator;
   }
   return _managedObjectContext;
 }
@@ -68,8 +68,7 @@
 
   _backgroundManagedObjectContext = [[NSManagedObjectContext alloc]
       initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-  [_backgroundManagedObjectContext
-      setParentContext:[self managedObjectContext]];
+  _backgroundManagedObjectContext.parentContext = self.managedObjectContext;
   [[NSNotificationCenter defaultCenter]
       addObserver:self
          selector:@selector(contextHasChanged:)
@@ -105,7 +104,7 @@
       URLByAppendingPathComponent:@"ZenHabitsReader.sqlite"];
 
   // Pre-load DB
-  if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+  if (![[NSFileManager defaultManager] fileExistsAtPath:storeURL.path]) {
     NSURL *preloadURL =
         [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                    pathForResource:@"ZenHabitsReader"
@@ -121,13 +120,13 @@
 
   NSError *error = nil;
   _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
-      initWithManagedObjectModel:[self managedObjectModel]];
+      initWithManagedObjectModel:self.managedObjectModel];
   if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                  configuration:nil
                                                            URL:storeURL
                                                        options:nil
                                                          error:&error]) {
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     abort();
   }
 
@@ -138,9 +137,8 @@
 
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory {
-  return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-                                                 inDomains:NSUserDomainMask]
-      lastObject];
+  return [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                 inDomains:NSUserDomainMask].lastObject;
 }
 
 #pragma mark - Saving and Loading Methods
@@ -154,14 +152,14 @@
       isBackground ? self.backgroundManagedObjectContext
                    : self.managedObjectContext;
   if (managedObjectContext != nil) {
-    if ([managedObjectContext hasChanges] &&
+    if (managedObjectContext.hasChanges &&
         ![managedObjectContext save:&error]) {
       // TODO: Replace this implementation with code to handle the error
       // appropriately.
       // abort() causes the application to generate a crash log and terminate.
       // You should not use this function in a shipping application, although it
       // may be useful during development.
-      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+      NSLog(@"Unresolved error %@, %@", error, error.userInfo);
 
 #ifdef DEBUG
       abort();
@@ -177,7 +175,7 @@
 
 - (Year *)getOrCreateUniqueYear:(NSString *)yearString {
   Year *uniqueYear = nil;
-  NSManagedObjectContext *context = [self managedObjectContext];
+  NSManagedObjectContext *context = self.managedObjectContext;
 
   uniqueYear = [self getYear:yearString];
 
@@ -194,7 +192,7 @@
                      yearForMonth:(Year *)year {
   NSError *executeFetchError = nil;
   static NSFetchRequest *request;
-  NSManagedObjectContext *context = [self managedObjectContext];
+  NSManagedObjectContext *context = self.managedObjectContext;
   Month *uniqueMonth;
 
   if (!request) {
@@ -207,14 +205,13 @@
       predicateWithFormat:@"(year.theYear = %@) AND (monthOfYear = %@)",
                           year.theYear, monthString];
 
-  uniqueMonth = [[context executeFetchRequest:request error:&executeFetchError]
-      lastObject];
+  uniqueMonth = [context executeFetchRequest:request error:&executeFetchError].lastObject;
 
   if (executeFetchError) {
     NSLog(@"[%@, %@] error looking up month with month string: %@ and year "
           @"string: %@ with error: %@",
           NSStringFromClass([self class]), NSStringFromSelector(_cmd),
-          monthString, year.theYear, [executeFetchError localizedDescription]);
+          monthString, year.theYear, executeFetchError.localizedDescription);
   } else if (!uniqueMonth) {
     uniqueMonth = [NSEntityDescription insertNewObjectForEntityForName:@"Month"
                                                 inManagedObjectContext:context];
@@ -238,12 +235,11 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity =
       [NSEntityDescription entityForName:@"PostHeader"
-                  inManagedObjectContext:[self managedObjectContext]];
-  [fetchRequest setEntity:entity];
+                  inManagedObjectContext:self.managedObjectContext];
+  fetchRequest.entity = entity;
 
   if (sortDescriptor) {
-    fetchRequest.sortDescriptors = [[NSArray<NSSortDescriptor *> alloc]
-        initWithObjects:sortDescriptor, nil];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
   }
 
   if (predicate) {
@@ -251,7 +247,7 @@
   }
 
   NSArray *fetchedObjects =
-      [[self managedObjectContext] executeFetchRequest:fetchRequest
+      [self.managedObjectContext executeFetchRequest:fetchRequest
                                                  error:&error];
 
   if (error) {
@@ -271,10 +267,10 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity =
       [NSEntityDescription entityForName:@"Month"
-                  inManagedObjectContext:[self managedObjectContext]];
-  [fetchRequest setEntity:entity];
+                  inManagedObjectContext:self.managedObjectContext];
+  fetchRequest.entity = entity;
   NSArray *fetchedObjects =
-      [[self managedObjectContext] executeFetchRequest:fetchRequest
+      [self.managedObjectContext executeFetchRequest:fetchRequest
                                                  error:&error];
 
   if (error) {
@@ -318,10 +314,10 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity =
       [NSEntityDescription entityForName:@"Year"
-                  inManagedObjectContext:[self managedObjectContext]];
-  [fetchRequest setEntity:entity];
+                  inManagedObjectContext:self.managedObjectContext];
+  fetchRequest.entity = entity;
   NSArray *fetchedObjects =
-      [[self managedObjectContext] executeFetchRequest:fetchRequest
+      [self.managedObjectContext executeFetchRequest:fetchRequest
                                                  error:&error];
 
   if (error) {
@@ -345,7 +341,7 @@
   Year *uniqueYear = nil;
   NSError *executeFetchError = nil;
   static NSFetchRequest *request;
-  NSManagedObjectContext *context = [self managedObjectContext];
+  NSManagedObjectContext *context = self.managedObjectContext;
 
   if (!request) {
     request = [[NSFetchRequest alloc] init];
@@ -356,13 +352,12 @@
   request.predicate =
       [NSPredicate predicateWithFormat:@"theYear = %@", yearString];
 
-  uniqueYear = [[context executeFetchRequest:request error:&executeFetchError]
-      lastObject];
+  uniqueYear = [context executeFetchRequest:request error:&executeFetchError].lastObject;
 
   if (executeFetchError) {
     NSLog(@"[%@, %@] error looking up year with year string: %@ with error: %@",
           NSStringFromClass([self class]), NSStringFromSelector(_cmd),
-          yearString, [executeFetchError localizedDescription]);
+          yearString, executeFetchError.localizedDescription);
   }
 
   return uniqueYear;
@@ -396,7 +391,7 @@
   Month *postMonth;
   PostHeader *postHeader;
 
-  NSManagedObjectContext *context = [self managedObjectContext];
+  NSManagedObjectContext *context = self.managedObjectContext;
 
   if (!request) {
     request = [[NSFetchRequest alloc] init];
@@ -406,14 +401,13 @@
 
   request.predicate = [NSPredicate predicateWithFormat:@"postID = %@", postID];
 
-  postHeader = [[context executeFetchRequest:request error:&executeFetchError]
-      lastObject];
+  postHeader = [context executeFetchRequest:request error:&executeFetchError].lastObject;
 
   if (executeFetchError) {
     NSLog(
         @"[%@, %@] error looking up year with postID string: %@ with error: %@",
         NSStringFromClass([self class]), NSStringFromSelector(_cmd), postID,
-        [executeFetchError localizedDescription]);
+        executeFetchError.localizedDescription);
   } else if (!postHeader) {
     postYear = [self getOrCreateUniqueYear:year];
     postMonth = [self getOrCreateUniqueMonth:month yearForMonth:postYear];
@@ -429,8 +423,8 @@
     postHeader.date = [KGNUtilities
         dateFromFriendlyString:[NSString stringWithFormat:@"%@ %@ %@", day,
                                                           month, year]];
-    postHeader.isNew = [NSNumber numberWithBool:isNew];
-    postHeader.isRead = [NSNumber numberWithBool:isRead];
+    postHeader.isNew = @(isNew);
+    postHeader.isRead = @(isRead);
     postHeader.url = url;
     postHeader.postID = postID;
     postHeader.month = postMonth;
@@ -468,7 +462,7 @@
   static NSFetchRequest *request;
   NSError *executeFetchError = nil;
   PostHeader *postHeader;
-  NSManagedObjectContext *context = [self managedObjectContext];
+  NSManagedObjectContext *context = self.managedObjectContext;
 
   if (!request) {
     request = [[NSFetchRequest alloc] init];
@@ -478,8 +472,7 @@
 
   request.predicate = predicate;
 
-  postHeader = [[context executeFetchRequest:request error:&executeFetchError]
-      lastObject];
+  postHeader = [context executeFetchRequest:request error:&executeFetchError].lastObject;
 
   if (executeFetchError) {
     NSLog(@"%s:Could not execute fetch request. Error: %@", __PRETTY_FUNCTION__,

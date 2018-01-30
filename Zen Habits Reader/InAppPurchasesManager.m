@@ -32,7 +32,7 @@ SKProduct *_unlockAllPostsProduct;
 - (BOOL)allPostsAreAvailable {
   NSNumber *postsAvailable = [[NSUserDefaults standardUserDefaults]
       objectForKey:UnlockedAllPostsPreferencesKey];
-  return (postsAvailable != nil && [postsAvailable boolValue] == YES);
+  return (postsAvailable != nil && postsAvailable.boolValue == YES);
 }
 
 - (void)displayPurchasesErrorAlertInViewController:
@@ -155,7 +155,7 @@ SKProduct *_unlockAllPostsProduct;
       [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
       self.TransactionInProgress = false;
       [[NSUserDefaults standardUserDefaults]
-          setObject:[NSNumber numberWithBool:YES]
+          setObject:@YES
              forKey:UnlockedAllPostsPreferencesKey];
       [[NSUserDefaults standardUserDefaults] synchronize];
       [AnalyticsManager reportIAPPurchased];
@@ -176,7 +176,7 @@ SKProduct *_unlockAllPostsProduct;
       [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
       self.TransactionInProgress = false;
       [[NSUserDefaults standardUserDefaults]
-          setObject:[NSNumber numberWithBool:YES]
+          setObject:@YES
              forKey:UnlockedAllPostsPreferencesKey];
       [[NSUserDefaults standardUserDefaults] synchronize];
       [AnalyticsManager reportIAPRestored];
@@ -211,7 +211,7 @@ SKProduct *_unlockAllPostsProduct;
 
   [alertController addAction:cancelAction];
 
-  [[[UIApplication sharedApplication] windows][0].rootViewController
+  [[UIApplication sharedApplication].windows[0].rootViewController
       presentViewController:alertController
                    animated:YES
                  completion:nil];

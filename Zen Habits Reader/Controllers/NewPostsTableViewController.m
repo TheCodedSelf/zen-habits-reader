@@ -24,9 +24,9 @@
 
   NSError *error;
 
-  if (![[self fetchedResultsController] performFetch:&error]) {
+  if (![self.fetchedResultsController performFetch:&error]) {
     // TODO: Update to handle the error appropriately.
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     exit(-1);
   }
 
@@ -59,19 +59,19 @@
 - (NSFetchedResultsController *)createFetchedResultsController {
   [[NSUserDefaults standardUserDefaults] synchronize];
   NSManagedObjectContext *context =
-      [[PersistenceManager sharedInstance] managedObjectContext];
+      [PersistenceManager sharedInstance].managedObjectContext;
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"PostHeader"
                                             inManagedObjectContext:context];
-  [fetchRequest setEntity:entity];
+  fetchRequest.entity = entity;
 
   NSSortDescriptor *sort =
       [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
-  [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+  fetchRequest.sortDescriptors = @[sort];
 
   // Fetch only twenty new posts
-  [fetchRequest setFetchLimit:10];
+  fetchRequest.fetchLimit = 10;
 
   NSDate *checkDate = (NSDate *)[[NSUserDefaults standardUserDefaults]
       objectForKey:@"firstCheckDate"];
@@ -83,7 +83,7 @@
 
   NSPredicate *predicate = [NSPredicate
       predicateWithFormat:@"(isRead = NO) AND (date > %@)", checkDate];
-  [fetchRequest setPredicate:predicate];
+  fetchRequest.predicate = predicate;
 
   NSFetchedResultsController *theFetchedResultsController =
       [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest

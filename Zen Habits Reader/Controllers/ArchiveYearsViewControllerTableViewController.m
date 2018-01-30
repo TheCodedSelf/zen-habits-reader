@@ -26,10 +26,10 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
   self.navigationController.view.backgroundColor = [UIColor whiteColor];
   NSError *error;
   [NSFetchedResultsController
-      deleteCacheWithName:[[self fetchedResultsController] cacheName]];
-  if (![[self fetchedResultsController] performFetch:&error]) {
+      deleteCacheWithName:self.fetchedResultsController.cacheName];
+  if (![self.fetchedResultsController performFetch:&error]) {
     // TODO: Update to handle the error appropriately.
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     exit(-1); // Fail
   }
 
@@ -43,7 +43,7 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+  NSIndexPath *ip = (self.tableView).indexPathForSelectedRow;
   if (ip != nil) {
     [self.tableView deselectRowAtIndexPath:ip animated:animated];
   }
@@ -76,18 +76,18 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
   }
 
   NSManagedObjectContext *context =
-      [[PersistenceManager sharedInstance] managedObjectContext];
+      [PersistenceManager sharedInstance].managedObjectContext;
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"Year"
                                             inManagedObjectContext:context];
 
-  [fetchRequest setEntity:entity];
+  fetchRequest.entity = entity;
 
   NSSortDescriptor *sort =
       [[NSSortDescriptor alloc] initWithKey:@"theYear" ascending:NO];
-  [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+  fetchRequest.sortDescriptors = @[sort];
 
-  [fetchRequest setFetchBatchSize:20];
+  fetchRequest.fetchBatchSize = 20;
 
   NSFetchedResultsController *theFetchedResultsController =
       [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
@@ -109,7 +109,7 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
 
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
-  id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+  id sectionInfo = _fetchedResultsController.sections[section];
   return [sectionInfo numberOfObjects];
 }
 
@@ -133,14 +133,14 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  if ([[LoadingManager sharedInstance] isBusyLoading]) {
+  if ([LoadingManager sharedInstance].isBusyLoading) {
     [[LoadingManager sharedInstance] displayLoadingScreenInView:self.view];
   }
 }
 
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  if ([[LoadingManager sharedInstance] isBusyLoading]) {
+  if ([LoadingManager sharedInstance].isBusyLoading) {
     return;
   }
   ZenTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -179,12 +179,12 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
   switch (type) {
 
   case NSFetchedResultsChangeInsert:
-    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+    [tableView insertRowsAtIndexPaths:@[newIndexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     break;
 
   case NSFetchedResultsChangeDelete:
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     break;
 
@@ -194,9 +194,9 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
     break;
 
   case NSFetchedResultsChangeMove:
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
-    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+    [tableView insertRowsAtIndexPaths:@[newIndexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     break;
   }

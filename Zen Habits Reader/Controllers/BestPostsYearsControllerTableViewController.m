@@ -42,7 +42,7 @@ NSString *const ZenTableViewCellIdentifier = @"ZenTableViewCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+  NSIndexPath *ip = (self.tableView).indexPathForSelectedRow;
   if (ip != nil) {
     [self.tableView deselectRowAtIndexPath:ip animated:animated];
   }
@@ -72,7 +72,7 @@ NSString *const ZenTableViewCellIdentifier = @"ZenTableViewCell";
 
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  if ([[LoadingManager sharedInstance] isBusyLoading]) {
+  if ([LoadingManager sharedInstance].isBusyLoading) {
     return;
   }
   ZenTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

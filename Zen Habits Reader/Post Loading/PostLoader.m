@@ -29,17 +29,16 @@ NSString *const populatedKey = @"populatedKey";
                     object:mostRecentPost.date];
     firstDownloadOperation.completionBlock = ^{
       NSLog(@"All posts: %lu",
-            (unsigned long)[[[PersistenceManager sharedInstance] allPostHeaders]
-                count]);
+            (unsigned long)[[PersistenceManager sharedInstance] allPostHeaders].count);
       [[NSUserDefaults standardUserDefaults] setObject:[NSDate date]
                                                 forKey:firstCheckDate];
       [[NSUserDefaults standardUserDefaults]
-          setObject:[NSNumber numberWithBool:YES]
+          setObject:@YES
              forKey:populatedKey];
       [[NSUserDefaults standardUserDefaults] synchronize];
     };
 
-    [[[KGNConcurrencyManager sharedInstance] backgroundOperationQueue]
+    [[KGNConcurrencyManager sharedInstance].backgroundOperationQueue
         addOperation:firstDownloadOperation];
   } else {
     [self checkForNewPosts];
@@ -79,38 +78,38 @@ NSString *const populatedKey = @"populatedKey";
     NSString *currentDay;
     NSDate *postDate;
 
-    if ([thChildren count] > 0) {
-      if ([thChildren count] > 1) {
+    if (thChildren.count > 0) {
+      if (thChildren.count > 1) {
         NSLog(@"There should only be one child in this array!");
       }
 
-      thText = [[thChildren objectAtIndex:0] content];
+      thText = [thChildren[0] content];
     } else {
       NSLog(@"No th!");
     }
 
     // Does this row define the year?
-    if ([[[element.attributes objectForKey:@"class"] lowercaseString]
+    if ([[(element.attributes)[@"class"] lowercaseString]
             isEqual:@"year"] &&
         [element hasChildren]) {
-      currentYear = [[thChildren objectAtIndex:0] content];
+      currentYear = [thChildren[0] content];
       continue;
     }
 
     NSArray *tdChildren = [element childrenWithTagName:@"td"];
 
-    if ([tdChildren count] < 1) {
+    if (tdChildren.count < 1) {
       NSLog(@"Found a row without td!");
       continue;
-    } else if ([tdChildren count] > 1) {
+    } else if (tdChildren.count > 1) {
       NSLog(@"Found a row with more than one td!");
     }
 
-    TFHppleElement *tdChild = [tdChildren objectAtIndex:0];
+    TFHppleElement *tdChild = tdChildren[0];
     aChildrenOftd = [tdChild childrenWithTagName:@"a"];
 
     // Does this row define the month?
-    if ([aChildrenOftd count] < 1) {
+    if (aChildrenOftd.count < 1) {
       currentMonth = thText;
       continue;
     }
@@ -139,11 +138,11 @@ NSString *const populatedKey = @"populatedKey";
       isNew = YES;
     }
 
-    TFHppleElement *link = [aChildrenOftd objectAtIndex:0];
+    TFHppleElement *link = aChildrenOftd[0];
 
-    NSString *postID = [tdChild.attributes objectForKey:@"id"];
-    NSString *title = [link content];
-    NSString *url = [link.attributes objectForKey:@"href"];
+    NSString *postID = (tdChild.attributes)[@"id"];
+    NSString *title = link.content;
+    NSString *url = (link.attributes)[@"href"];
 
     [[PersistenceManager sharedInstance] createPostHeaderWithTitle:title
                                                             andUrl:url
@@ -245,7 +244,7 @@ NSString *const populatedKey = @"populatedKey";
                   selector:@selector(downloadAllPostsAfterDate:)
                     object:mostRecentPostDate];
 
-    [[[KGNConcurrencyManager sharedInstance] backgroundOperationQueue]
+    [[KGNConcurrencyManager sharedInstance].backgroundOperationQueue
         addOperation:checkNewPostsOperation];
   }
 }

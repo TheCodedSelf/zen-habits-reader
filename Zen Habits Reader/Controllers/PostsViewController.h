@@ -17,7 +17,7 @@
 @property(nonatomic, retain)
     NSFetchedResultsController *fetchedResultsController;
 
-- (NSFetchedResultsController *)createFetchedResultsController;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) NSFetchedResultsController *createFetchedResultsController;
 
 extern NSString *const ToIndividualPostSegue;
 

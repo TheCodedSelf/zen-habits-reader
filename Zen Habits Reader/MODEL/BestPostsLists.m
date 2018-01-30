@@ -18,7 +18,7 @@
 + (NSString*) predicateForYear: (NSInteger) year
 {
  NSArray* years = [BestPostsLists allYears];
- return [years objectAtIndex:[BestPostsLists mostRecentPostYear] - year];
+ return years[[BestPostsLists mostRecentPostYear] - year];
 }
 
 + (NSArray*) allYears
@@ -27,7 +27,7 @@
         
         if (!allYears)
             {
-                allYears = [[NSArray alloc] initWithObjects:[self bestOf2015], [self bestOf2014], [self bestOf2013], [self bestOf2012], [self bestOf2011], [self bestOf2010], [self bestOf2009], [self bestOf2008], [self bestOf2007], nil];
+                allYears = @[[self bestOf2015], [self bestOf2014], [self bestOf2013], [self bestOf2012], [self bestOf2011], [self bestOf2010], [self bestOf2009], [self bestOf2008], [self bestOf2007]];
             }
              return allYears;
     }

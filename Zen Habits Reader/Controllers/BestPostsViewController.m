@@ -20,9 +20,9 @@
 
   NSError *error;
 
-  if (![[self fetchedResultsController] performFetch:&error]) {
+  if (![self.fetchedResultsController performFetch:&error]) {
     // TODO: Update to handle the error appropriately.
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     exit(-1); // Fail
   }
 
@@ -36,23 +36,22 @@
 
 - (NSFetchedResultsController *)createFetchedResultsController {
   NSManagedObjectContext *context =
-      [[PersistenceManager sharedInstance] managedObjectContext];
+      [PersistenceManager sharedInstance].managedObjectContext;
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 
   NSEntityDescription *entity = [NSEntityDescription entityForName:@"PostHeader"
                                             inManagedObjectContext:context];
-  [fetchRequest setEntity:entity];
+  fetchRequest.entity = entity;
 
   NSSortDescriptor *sort =
       [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-  [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+  fetchRequest.sortDescriptors = @[sort];
 
-  [fetchRequest setFetchBatchSize:20];
+  fetchRequest.fetchBatchSize = 20;
 
   NSPredicate *predicate = [NSPredicate
-      predicateWithFormat:[BestPostsLists predicateForYear:[_currentYearString
-                                                               integerValue]]];
-  [fetchRequest setPredicate:predicate];
+      predicateWithFormat:[BestPostsLists predicateForYear:_currentYearString.integerValue]];
+  fetchRequest.predicate = predicate;
 
   NSFetchedResultsController *theFetchedResultsController =
       [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest

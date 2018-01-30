@@ -34,12 +34,12 @@
 
 @interface TFHpple : NSObject 
 
-- (id) initWithData:(NSData *)theData encoding:(NSString *)encoding isXML:(BOOL)isDataXML;
-- (id) initWithData:(NSData *)theData isXML:(BOOL)isDataXML;
-- (id) initWithXMLData:(NSData *)theData encoding:(NSString *)encoding;
-- (id) initWithXMLData:(NSData *)theData;
-- (id) initWithHTMLData:(NSData *)theData encoding:(NSString *)encoding;
-- (id) initWithHTMLData:(NSData *)theData;
+- (instancetype) initWithData:(NSData *)theData encoding:(NSString *)encoding isXML:(BOOL)isDataXML NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithData:(NSData *)theData isXML:(BOOL)isDataXML;
+- (instancetype) initWithXMLData:(NSData *)theData encoding:(NSString *)encoding;
+- (instancetype) initWithXMLData:(NSData *)theData;
+- (instancetype) initWithHTMLData:(NSData *)theData encoding:(NSString *)encoding;
+- (instancetype) initWithHTMLData:(NSData *)theData;
 
 + (TFHpple *) hppleWithData:(NSData *)theData encoding:(NSString *)encoding isXML:(BOOL)isDataXML;
 + (TFHpple *) hppleWithData:(NSData *)theData isXML:(BOOL)isDataXML;

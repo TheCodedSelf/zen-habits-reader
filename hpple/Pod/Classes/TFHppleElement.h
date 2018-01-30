@@ -32,7 +32,7 @@
 
 @interface TFHppleElement : NSObject
 
-- (id) initWithNode:(NSDictionary *) theNode isXML:(BOOL)isDataXML withEncoding:(NSString *)theEncoding;
+- (instancetype) initWithNode:(NSDictionary *) theNode isXML:(BOOL)isDataXML withEncoding:(NSString *)theEncoding NS_DESIGNATED_INITIALIZER;
 
 + (TFHppleElement *) hppleElementWithNode:(NSDictionary *) theNode isXML:(BOOL)isDataXML withEncoding:(NSString *)theEncoding;
 
@@ -59,10 +59,10 @@
 
 // Returns YES if the node has any child
 // This is more efficient than using the children property since no NSArray is constructed
-- (BOOL)hasChildren;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasChildren;
 
 // Returns YES if this is a text node
-- (BOOL)isTextNode;
+@property (NS_NONATOMIC_IOSONLY, getter=isTextNode, readonly) BOOL textNode;
 
 // Provides easy access to the content of a specific attribute, 
 // such as 'href' or 'class'.
@@ -90,11 +90,11 @@
 
 // Returns the first text node from this element's children
 // Returns nil if there is no text node among the children
-- (TFHppleElement *) firstTextChild;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) TFHppleElement *firstTextChild;
 
 // Returns the string contained by the first text node from this element's children
 // Convenience method which can be used instead of firstTextChild.content
-- (NSString *) text;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *text;
 
 // Returns elements searched with xpath
 - (NSArray *) searchWithXPathQuery:(NSString *)xPathOrCSS;

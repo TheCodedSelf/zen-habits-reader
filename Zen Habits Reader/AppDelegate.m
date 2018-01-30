@@ -26,17 +26,13 @@ didFinishLaunchingWithOptions:
   // set color of unselected text to grey
   [[UITabBarItem appearance]
       setTitleTextAttributes:
-          [NSDictionary
-              dictionaryWithObjectsAndKeys:[UIColor colorWithWhite:0.8 alpha:1],
-                                           NSForegroundColorAttributeName, nil]
+          @{NSForegroundColorAttributeName: [UIColor colorWithWhite:0.8 alpha:1]}
                     forState:UIControlStateNormal];
 
   // set color of selected text to white
   [[UITabBarItem appearance]
       setTitleTextAttributes:
-          [NSDictionary
-              dictionaryWithObjectsAndKeys:[UIColor whiteColor],
-                                           NSForegroundColorAttributeName, nil]
+          @{NSForegroundColorAttributeName: [UIColor whiteColor]}
                     forState:UIControlStateSelected];
 
   // if date older than today, check
@@ -71,10 +67,8 @@ didFinishLaunchingWithOptions:
   NSDate *mostRecentPostDate;
   PostHeader *mostRecentPost;
 
-  [[PersistenceManager sharedInstance]
-      setBackgroundChecks:[[PersistenceManager sharedInstance]
-                              backgroundChecks] +
-                          1];
+  [PersistenceManager sharedInstance].backgroundChecks = [PersistenceManager sharedInstance].backgroundChecks +
+                          1;
   mostRecentPost = [[PersistenceManager sharedInstance] getMostRecentPost];
   mostRecentPostDate = mostRecentPost
                            ? mostRecentPost.date

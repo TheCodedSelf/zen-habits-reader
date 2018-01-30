@@ -34,10 +34,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, BadgeStyleFontType) {
   BadgeStyleFontTypeHelveticaNeueMedium,
   BadgeStyleFontTypeHelveticaNeueLight,
-} BadgeStyleFontType;
+};
 
 @interface BadgeStyle : NSObject {
 

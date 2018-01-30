@@ -23,7 +23,7 @@
 - (void)viewDidAppear:(BOOL)animated { // TODO: remove
   _checks.text = [NSString
       stringWithFormat:@"%d",
-                       [[PersistenceManager sharedInstance] backgroundChecks]];
+                       [PersistenceManager sharedInstance].backgroundChecks];
 }
 
 - (void)didReceiveMemoryWarning {

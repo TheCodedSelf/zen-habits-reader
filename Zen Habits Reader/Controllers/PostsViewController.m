@@ -29,7 +29,7 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  if ([[LoadingManager sharedInstance] isBusyLoading]) {
+  if ([LoadingManager sharedInstance].isBusyLoading) {
     [[LoadingManager sharedInstance] displayLoadingScreenInView:self.view];
   }
 }
@@ -37,7 +37,7 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
 - (void)viewDidDisappear:(BOOL)animated {
   if (_postsToMarkAsNotNew) {
     for (PostHeader *postHeader in _postsToMarkAsNotNew) {
-      postHeader.isNew = [NSNumber numberWithBool:NO];
+      postHeader.isNew = @NO;
     }
     _postsToMarkAsNotNew = nil;
   }
@@ -74,7 +74,7 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
 
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
-  id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+  id sectionInfo = _fetchedResultsController.sections[section];
   return [sectionInfo numberOfObjects];
 }
 
@@ -87,11 +87,11 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
   postCell.postTitle.numberOfLines = 0;
   postCell.postStatusImage.hidden = YES;
   postCell.postTitle.enabled = YES;
-  if ([postHeader.isRead boolValue] == YES) {
+  if ((postHeader.isRead).boolValue == YES) {
     postCell.postTitle.enabled = NO;
     postCell.postStatusImage.image = [UIImage imageNamed:@"green_tick"];
     postCell.postStatusImage.hidden = NO;
-  } else if ([postHeader.isNew boolValue] == YES) {
+  } else if ((postHeader.isNew).boolValue == YES) {
     postCell.postStatusImage.image = [UIImage imageNamed:@"star"];
     postCell.postStatusImage.hidden = NO;
 
@@ -113,12 +113,12 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
   switch (type) {
 
   case NSFetchedResultsChangeInsert:
-    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+    [tableView insertRowsAtIndexPaths:@[newIndexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     break;
 
   case NSFetchedResultsChangeDelete:
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     break;
 
@@ -128,9 +128,9 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
     break;
 
   case NSFetchedResultsChangeMove:
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
-    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+    [tableView insertRowsAtIndexPaths:@[newIndexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     break;
   }
@@ -150,7 +150,7 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
 - (void)tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  if ([[LoadingManager sharedInstance] isBusyLoading]) {
+  if ([LoadingManager sharedInstance].isBusyLoading) {
     return;
   }
 
@@ -161,8 +161,8 @@ NSString *const ToIndividualPostSegue = @"fromArchivePostsToIndividualPost";
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC),
                  dispatch_get_main_queue(), ^{
                    self.selectedPostHeader.isRead =
-                       [NSNumber numberWithBool:YES];
-                   self.selectedPostHeader.isNew = [NSNumber numberWithBool:NO];
+                       @YES;
+                   self.selectedPostHeader.isNew = @NO;
                    [[PersistenceManager sharedInstance] saveContext];
                  });
 }

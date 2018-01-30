@@ -25,7 +25,7 @@ static UIView *loadingView;
     mmddyyyy = [[NSDateFormatter alloc] init];
     mmddyyyy.timeStyle = NSDateFormatterNoStyle;
     mmddyyyy.dateFormat = @"d LLLL yyyy";
-    [mmddyyyy setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    mmddyyyy.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
   }
 
   return [mmddyyyy dateFromString:friendlyString];
@@ -36,10 +36,10 @@ static UIView *loadingView;
   NSDate *today;
 
   dateFormatter = [[NSDateFormatter alloc] init];
-  [dateFormatter setLocale:[NSLocale currentLocale]];
+  dateFormatter.locale = [NSLocale currentLocale];
   [dateFormatter setDoesRelativeDateFormatting:YES];
 
-  [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+  dateFormatter.timeStyle = NSDateFormatterShortStyle;
 
   NSCalendar *currentCalendar = [NSCalendar currentCalendar];
   NSDateComponents *components = [currentCalendar

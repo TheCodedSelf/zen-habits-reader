@@ -28,7 +28,7 @@ NSString *const StartersGuide = @"Starter's Guide";
 
 - (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
-  return [[self allCellsArray] count];
+  return [self allCellsArray].count;
 }
 
 - (void)viewDidLoad {
@@ -43,13 +43,13 @@ NSString *const StartersGuide = @"Starter's Guide";
                                       target:nil
                                       action:nil];
 
-  [self.navigationItem setBackBarButtonItem:backButton];
+  (self.navigationItem).backBarButtonItem = backButton;
   [self.tableView setScrollEnabled:NO];
   self.navigationController.navigationBar.barTintColor =
       [KGNUtilities primaryColor];
-  [self.navigationController.navigationBar setTitleTextAttributes:@{
+  (self.navigationController.navigationBar).titleTextAttributes = @{
     NSForegroundColorAttributeName : [UIColor whiteColor]
-  }];
+  };
 
   self.tabBarController.tabBar.barTintColor = [KGNUtilities primaryColor];
 
@@ -72,20 +72,13 @@ NSString *const StartersGuide = @"Starter's Guide";
                    [UIApplication sharedApplication].statusBarFrame.size.height;
   height = height - self.navigationController.navigationBar.frame.size.height;
   height = height - self.tabBarController.tabBar.bounds.size.height;
-  return height / [[self allCellsDictionary] count];
+  return height / [self allCellsDictionary].count;
 }
 
 - (NSDictionary *)allCellsDictionary {
   static NSDictionary *cells;
   if (!cells) {
-    cells = [NSDictionary
-        dictionaryWithObjects:@[
-          @"PostTypesToBestPosts", @"PostTypesToNewPosts",
-          @"PostTypesToStartersGuide", @"PostTypesToArchivePosts"
-        ]
-                      forKeys:@[
-                        @"Best Posts", NewPosts, StartersGuide, @"Archives"
-                      ]];
+    cells = @{@"Best Posts": @"PostTypesToBestPosts", NewPosts: @"PostTypesToNewPosts", StartersGuide: @"PostTypesToStartersGuide", @"Archives": @"PostTypesToArchivePosts"};
   }
   return cells;
 }
@@ -126,7 +119,7 @@ NSString *const StartersGuide = @"Starter's Guide";
                                        newPostsBadge.frame.size.height);
         CGRect badgeRect = CGRectMake(topLeftPoint.x, topLeftPoint.y,
                                       buttonSize.width, buttonSize.height);
-        [newPostsBadge setFrame:badgeRect];
+        newPostsBadge.frame = badgeRect;
         [cell addSubview:newPostsBadge];
       } else {
         newPostsBadge.badgeText =

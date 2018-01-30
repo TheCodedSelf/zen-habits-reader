@@ -46,7 +46,7 @@
 @synthesize encoding;
 
 
-- (id) initWithData:(NSData *)theData encoding:(NSString *)theEncoding isXML:(BOOL)isDataXML
+- (instancetype) initWithData:(NSData *)theData encoding:(NSString *)theEncoding isXML:(BOOL)isDataXML
 {
   if (!(self = [super init])) {
     return nil;
@@ -59,27 +59,27 @@
   return self;
 }
 
-- (id) initWithData:(NSData *)theData isXML:(BOOL)isDataXML
+- (instancetype) initWithData:(NSData *)theData isXML:(BOOL)isDataXML
 {
     return [self initWithData:theData encoding:nil isXML:isDataXML];
 }
 
-- (id) initWithXMLData:(NSData *)theData encoding:(NSString *)theEncoding
+- (instancetype) initWithXMLData:(NSData *)theData encoding:(NSString *)theEncoding
 {
   return [self initWithData:theData encoding:theEncoding isXML:YES];
 }
 
-- (id) initWithXMLData:(NSData *)theData
+- (instancetype) initWithXMLData:(NSData *)theData
 {
   return [self initWithData:theData encoding:nil isXML:YES];
 }
 
-- (id) initWithHTMLData:(NSData *)theData encoding:(NSString *)theEncoding
+- (instancetype) initWithHTMLData:(NSData *)theData encoding:(NSString *)theEncoding
 {
     return [self initWithData:theData encoding:theEncoding isXML:NO];
 }
 
-- (id) initWithHTMLData:(NSData *)theData
+- (instancetype) initWithHTMLData:(NSData *)theData
 {
   return [self initWithData:theData encoding:nil isXML:NO];
 }
@@ -131,8 +131,8 @@
 - (TFHppleElement *) peekAtSearchWithXPathQuery:(NSString *)xPathOrCSS
 {
   NSArray * elements = [self searchWithXPathQuery:xPathOrCSS];
-  if ([elements count] >= 1) {
-    return [elements objectAtIndex:0];
+  if (elements.count >= 1) {
+    return elements[0];
   }
 
   return nil;

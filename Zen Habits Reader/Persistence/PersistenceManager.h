@@ -21,17 +21,17 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property(nonatomic) int backgroundChecks;
 
-- (NSArray *)allPostHeaders;
-- (NSArray *)allMonths;
-- (NSArray *)allYears;
-- (NSArray *)allNewPostHeaders;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *allPostHeaders;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *allMonths;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *allYears;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *allNewPostHeaders;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *applicationDocumentsDirectory;
 
 - (PostHeader *)getPostHeaderWithTitle:(NSString *)title;
 - (PostHeader *)getPostHeaderWithPostID:(NSString *)postID;
-- (PostHeader *)getMostRecentPost;
+@property (NS_NONATOMIC_IOSONLY, getter=getMostRecentPost, readonly, strong) PostHeader *mostRecentPost;
 - (Year *)getYear:(NSString *)yearString;
 
 - (void)createPostHeaderWithTitle:(NSString *)title

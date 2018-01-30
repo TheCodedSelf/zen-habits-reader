@@ -28,7 +28,7 @@
   NSMutableArray *navigationArray = [[NSMutableArray alloc]
       initWithArray:self.navigationController.viewControllers];
 
-  [navigationArray removeObjectAtIndex:[navigationArray count] - 2];
+  [navigationArray removeObjectAtIndex:navigationArray.count - 2];
   self.navigationController.viewControllers = navigationArray;
   self.problemHeaderLabel.text = _headerText;
   self.problemSubheaderLabel.text = _subText;

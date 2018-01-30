@@ -52,12 +52,12 @@
 @synthesize badgeStyle;
 
 // I recommend to use one of the allocators like customBadgeWithString
-- (id)initWithString:(NSString *)badgeString
+- (instancetype)initWithString:(NSString *)badgeString
            withScale:(CGFloat)scale
            withStyle:(BadgeStyle *)style {
   self = [super initWithFrame:CGRectMake(0, 0, 25, 25)];
   if (self != nil) {
-    self.contentScaleFactor = [[UIScreen mainScreen] scale];
+    self.contentScaleFactor = [UIScreen mainScreen].scale;
     self.backgroundColor = [UIColor clearColor];
     self.badgeText = badgeString;
     self.badgeStyle = style;
@@ -77,8 +77,8 @@
       @{NSFontAttributeName : [self fontForBadgeWithSize:12]};
   CGSize stringSize = [badgeString sizeWithAttributes:fontAttr];
   CGFloat flexSpace;
-  if ([badgeString length] >= 2) {
-    flexSpace = [badgeString length];
+  if (badgeString.length >= 2) {
+    flexSpace = badgeString.length;
     rectWidth = 25 + (stringSize.width + flexSpace);
     rectHeight = 25;
     retValue =
@@ -137,7 +137,7 @@
 
   CGContextBeginPath(context);
   CGContextSetFillColorWithColor(context,
-                                 [self.badgeStyle.badgeInsetColor CGColor]);
+                                 (self.badgeStyle.badgeInsetColor).CGColor);
   CGContextAddArc(context, maxX - radius, minY + radius, radius,
                   M_PI + (M_PI / 2), 0, 0);
   CGContextAddArc(context, maxX - radius, maxY - radius, radius, 0, M_PI / 2,
@@ -148,7 +148,7 @@
                   M_PI + M_PI / 2, 0);
   if (self.badgeStyle.badgeShadow) {
     CGContextSetShadowWithColor(context, CGSizeMake(1.0, 1.0), 3,
-                                [[UIColor blackColor] CGColor]);
+                                [UIColor blackColor].CGColor);
   }
   CGContextFillPath(context);
 
@@ -216,7 +216,7 @@
   }
   CGContextSetLineWidth(context, lineSize);
   CGContextSetStrokeColorWithColor(context,
-                                   [self.badgeStyle.badgeFrameColor CGColor]);
+                                   (self.badgeStyle.badgeFrameColor).CGColor);
   CGContextAddArc(context, maxX - radius, minY + radius, radius,
                   M_PI + (M_PI / 2), 0, 0);
   CGContextAddArc(context, maxX - radius, maxY - radius, radius, 0, M_PI / 2,
@@ -253,9 +253,9 @@
     [self drawFrameWithContext:context withRect:rect];
   }
 
-  if ([self.badgeText length] > 0) {
+  if ((self.badgeText).length > 0) {
     CGFloat sizeOfFont = 13.5 * badgeScaleFactor;
-    if ([self.badgeText length] < 2) {
+    if ((self.badgeText).length < 2) {
       sizeOfFont += sizeOfFont * 0.20f;
     }
     UIFont *textFont = [self fontForBadgeWithSize:sizeOfFont];

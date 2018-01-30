@@ -15,7 +15,7 @@
 
 + (InAppPurchasesManager *)sharedInstance;
 - (void)initialiseInViewController:(UIViewController *)viewController;
-- (BOOL)allPostsAreAvailable;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL allPostsAreAvailable;
 - (void)presentPurchaseDialogInViewController:
     (UIViewController *)viewController;
 - (void)restoreCompletedTransactions;

@@ -33,9 +33,9 @@ NSString *const ToLicensesSegueIdentifier = @"AboutToLicensesSegue";
   self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
   self.navigationController.navigationBar.barTintColor =
       [KGNUtilities primaryColor];
-  [self.navigationController.navigationBar setTitleTextAttributes:@{
+  (self.navigationController.navigationBar).titleTextAttributes = @{
     NSForegroundColorAttributeName : [UIColor whiteColor]
-  }];
+  };
 
   [[NSBundle mainBundle] loadNibNamed:@"AboutHeaderView"
                                 owner:self
@@ -52,7 +52,7 @@ NSString *const ToLicensesSegueIdentifier = @"AboutToLicensesSegue";
       height + [UIApplication sharedApplication].statusBarFrame.size.height;
 
   height = height + self.tabBarController.tabBar.bounds.size.height;
-  CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+  CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
   self.tableView.tableFooterView.bounds =
       CGRectMake(0, 0, width, screenHeight - height);
   CGRect frame = self.tableView.tableFooterView.frame;
@@ -127,8 +127,7 @@ NSString *const ToLicensesSegueIdentifier = @"AboutToLicensesSegue";
     [mailCont setSubject:[NSString stringWithFormat:@"Zen Breath Feedback %@",
                                                     [NSDate date]]];
     [mailCont
-        setToRecipients:[NSArray
-                            arrayWithObject:@"galaxyplansoftware@gmail.com"]];
+        setToRecipients:@[@"galaxyplansoftware@gmail.com"]];
     [mailCont setMessageBody:@"" isHTML:NO];
 
     [self presentViewController:mailCont animated:YES completion:nil];
