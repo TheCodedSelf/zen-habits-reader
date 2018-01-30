@@ -28,9 +28,9 @@ NSString *const ToArchivePostsSegue = @"fromArchiveYearsToArchivePosts";
   [NSFetchedResultsController
       deleteCacheWithName:self.fetchedResultsController.cacheName];
   if (![self.fetchedResultsController performFetch:&error]) {
-    // TODO: Update to handle the error appropriately.
+    
     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-    exit(-1); // Fail
+    exit(-1);
   }
 
   self.title = @"Archives";

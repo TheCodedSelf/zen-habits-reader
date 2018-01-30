@@ -25,7 +25,7 @@
   NSError *error;
 
   if (![self.fetchedResultsController performFetch:&error]) {
-    // TODO: Update to handle the error appropriately.
+    
     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
     exit(-1);
   }

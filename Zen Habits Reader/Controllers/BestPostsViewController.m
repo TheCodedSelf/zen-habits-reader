@@ -21,17 +21,14 @@
   NSError *error;
 
   if (![self.fetchedResultsController performFetch:&error]) {
-    // TODO: Update to handle the error appropriately.
+    
     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-    exit(-1); // Fail
+    exit(-1);
   }
 
   self.tableView.tableFooterView = [UIView new];
   self.navigationItem.title = _currentYearString;
   [AnalyticsManager reportNavigationToScreen:@"Best Posts"];
-  // Uncomment the following line to display an Edit button in the navigation
-  // bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (NSFetchedResultsController *)createFetchedResultsController {
@@ -61,7 +58,7 @@
   self.fetchedResultsController = theFetchedResultsController;
   theFetchedResultsController.delegate =
       (id<NSFetchedResultsControllerDelegate>)
-          self; // TODO: What's with the warning? Also in ArchiveYears
+          self;
 
   return theFetchedResultsController;
 }
