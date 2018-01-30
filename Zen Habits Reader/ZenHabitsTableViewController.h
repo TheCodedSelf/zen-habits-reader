@@ -6,9 +6,9 @@
 //  Copyright © 2015 Keegan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ZenTableViewHeader.h"
+#import <UIKit/UIKit.h>
 @interface ZenHabitsTableViewController : UITableViewController
-@property (strong, nonatomic) IBOutlet ZenTableViewHeader *headerView;
-- (void) prepareTableHeaderWithText: (NSString*)headerText;
+@property(strong, nonatomic) IBOutlet ZenTableViewHeader *headerView;
+- (void)prepareTableHeaderWithText:(NSString *)headerText;
 @end

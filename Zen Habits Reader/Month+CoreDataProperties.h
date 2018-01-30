@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Month (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *monthOfYear;
-@property (nullable, nonatomic, retain) NSDate *date;
-@property (nullable, nonatomic, retain) Year *year;
-@property (nullable, nonatomic, retain) NSSet<PostHeader *> *posts;
+@property(nullable, nonatomic, retain) NSString *monthOfYear;
+@property(nullable, nonatomic, retain) NSDate *date;
+@property(nullable, nonatomic, retain) Year *year;
+@property(nullable, nonatomic, retain) NSSet<PostHeader *> *posts;
 
 @end
 

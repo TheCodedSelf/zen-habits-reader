@@ -10,8 +10,8 @@
 
 @interface KGNConcurrencyManager : NSObject
 
-+ (KGNConcurrencyManager *) sharedInstance;
++ (KGNConcurrencyManager *)sharedInstance;
 
-@property (nonatomic, strong) NSOperationQueue* backgroundOperationQueue;
+@property(nonatomic, strong) NSOperationQueue *backgroundOperationQueue;
 
 @end

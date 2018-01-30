@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PostTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *postTitle;
-@property (strong, nonatomic) IBOutlet UIImageView *postStatusImage;
+@property(strong, nonatomic) IBOutlet UILabel *postTitle;
+@property(strong, nonatomic) IBOutlet UIImageView *postStatusImage;
 @end

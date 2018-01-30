@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PostListCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property(weak, nonatomic) IBOutlet UILabel *name;
+@property(weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

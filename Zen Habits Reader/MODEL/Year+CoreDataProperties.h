@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Year (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *theYear;
-@property (nullable, nonatomic, retain) NSSet<Month *> *months;
+@property(nullable, nonatomic, retain) NSString *theYear;
+@property(nullable, nonatomic, retain) NSSet<Month *> *months;
 
 @end
 

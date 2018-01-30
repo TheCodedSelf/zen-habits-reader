@@ -12,25 +12,21 @@
 
 @synthesize backgroundOperationQueue = _backgroundOperationQueue;
 
-+ (KGNConcurrencyManager *) sharedInstance
-    {
-    static KGNConcurrencyManager *sharedInstance;
-    if (sharedInstance == nil)
-        {
-        sharedInstance = [[KGNConcurrencyManager alloc] init];
-        }
-    
-    return sharedInstance;
-    }
++ (KGNConcurrencyManager *)sharedInstance {
+  static KGNConcurrencyManager *sharedInstance;
+  if (sharedInstance == nil) {
+    sharedInstance = [[KGNConcurrencyManager alloc] init];
+  }
 
-- (NSOperationQueue *) backgroundOperationQueue
-    {
-    if (!_backgroundOperationQueue)
-        {
-            _backgroundOperationQueue = [[NSOperationQueue alloc] init];
-        }
-        
-    return _backgroundOperationQueue;
-    }
+  return sharedInstance;
+}
+
+- (NSOperationQueue *)backgroundOperationQueue {
+  if (!_backgroundOperationQueue) {
+    _backgroundOperationQueue = [[NSOperationQueue alloc] init];
+  }
+
+  return _backgroundOperationQueue;
+}
 
 @end

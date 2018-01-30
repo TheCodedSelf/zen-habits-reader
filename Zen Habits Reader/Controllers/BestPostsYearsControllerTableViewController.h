@@ -6,9 +6,10 @@
 //  Copyright © 2015 Keegan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ZenHabitsTableViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface BestPostsYearsControllerTableViewController : ZenHabitsTableViewController
+@interface BestPostsYearsControllerTableViewController
+    : ZenHabitsTableViewController
 
 @end

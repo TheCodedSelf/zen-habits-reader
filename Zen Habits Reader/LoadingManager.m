@@ -8,43 +8,36 @@
 
 #import "LoadingManager.h"
 #import "KGNLoadingView.h"
-@interface LoadingManager()
-{
-    __strong KGNLoadingView *_loadingView;
-    __weak UIView *_currentView;
+@interface LoadingManager () {
+  __strong KGNLoadingView *_loadingView;
+  __weak UIView *_currentView;
 }
 @end
 
 @implementation LoadingManager
 
-+ (LoadingManager *) sharedInstance
-    {
-    static LoadingManager *sharedInstance;
-    if (sharedInstance == nil)
-        {
-        sharedInstance = [[LoadingManager alloc] init];
-        }
-    
-    return sharedInstance;
-    }
++ (LoadingManager *)sharedInstance {
+  static LoadingManager *sharedInstance;
+  if (sharedInstance == nil) {
+    sharedInstance = [[LoadingManager alloc] init];
+  }
 
-- (void) displayLoadingScreenInView: (UIView*) view
-    {
-    if (_currentView)
-        {
-        [self removeCurrentLoadingScreen];
-        }
-    _loadingView = [KGNLoadingView createLoadingViewInView:view];
-    _currentView = view;
-    }
+  return sharedInstance;
+}
 
-- (void) removeCurrentLoadingScreen
-    {
-    if (_loadingView)
-        {
-        [_loadingView remove];
-        _loadingView = nil;
-        }
-    _currentView = nil;
-    }
+- (void)displayLoadingScreenInView:(UIView *)view {
+  if (_currentView) {
+    [self removeCurrentLoadingScreen];
+  }
+  _loadingView = [KGNLoadingView createLoadingViewInView:view];
+  _currentView = view;
+}
+
+- (void)removeCurrentLoadingScreen {
+  if (_loadingView) {
+    [_loadingView remove];
+    _loadingView = nil;
+  }
+  _currentView = nil;
+}
 @end

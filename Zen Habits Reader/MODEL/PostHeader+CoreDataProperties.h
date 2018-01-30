@@ -15,13 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PostHeader (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSDate *date;
-@property (nullable, nonatomic, retain) NSNumber *isNew;
-@property (nullable, nonatomic, retain) NSNumber *isRead;
-@property (nullable, nonatomic, retain) NSString *postID;
-@property (nullable, nonatomic, retain) NSString *title;
-@property (nullable, nonatomic, retain) NSString *url;
-@property (nullable, nonatomic, retain) Month *month;
+@property(nullable, nonatomic, retain) NSDate *date;
+@property(nullable, nonatomic, retain) NSNumber *isNew;
+@property(nullable, nonatomic, retain) NSNumber *isRead;
+@property(nullable, nonatomic, retain) NSString *postID;
+@property(nullable, nonatomic, retain) NSString *title;
+@property(nullable, nonatomic, retain) NSString *url;
+@property(nullable, nonatomic, retain) Month *month;
 
 @end
 

@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface BestPostsLists : NSObject
-+ (int) mostRecentPostYear;
-+ (NSString*) predicateForYear: (NSInteger) year;
++ (int)mostRecentPostYear;
++ (NSString *)predicateForYear:(NSInteger)year;
 @end

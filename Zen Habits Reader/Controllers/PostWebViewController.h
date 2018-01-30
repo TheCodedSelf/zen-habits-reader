@@ -6,10 +6,10 @@
 //  Copyright © 2015 Keegan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "PostHeader.h"
+#import <UIKit/UIKit.h>
 @import WebKit;
 
 @interface PostWebViewController : UIViewController <WKNavigationDelegate>
-@property (nonatomic) PostHeader* currentPostHeader;
+@property(nonatomic) PostHeader *currentPostHeader;
 @end

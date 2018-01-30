@@ -6,17 +6,18 @@
 //  Copyright © 2015 Keegan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
-#import "PostHeader.h"
 #import "PersistenceManager.h"
+#import "PostHeader.h"
 #import "ZenHabitsTableViewController.h"
+#import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 @interface PostsViewController : ZenHabitsTableViewController
-@property (nonatomic) PostHeader *selectedPostHeader;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property(nonatomic) PostHeader *selectedPostHeader;
+@property(nonatomic, retain)
+    NSFetchedResultsController *fetchedResultsController;
 
-- (NSFetchedResultsController*) createFetchedResultsController;
+- (NSFetchedResultsController *)createFetchedResultsController;
 
 extern NSString *const ToIndividualPostSegue;
 

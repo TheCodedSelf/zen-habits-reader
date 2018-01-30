@@ -11,14 +11,13 @@
 @implementation PostListCollectionViewCell
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [super awakeFromNib];
+  [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 }
 
-- (void)layoutSubviews
-    {
-        self.contentView.frame = self.bounds;
-        [super layoutSubviews];
-    }
+- (void)layoutSubviews {
+  self.contentView.frame = self.bounds;
+  [super layoutSubviews];
+}
 
 @end

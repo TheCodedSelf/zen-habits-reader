@@ -25,7 +25,6 @@
         exit(-1);  // Fail
         }
     
-//    [self prepareTableHeaderWithText:@"The starters' guide is a collection of the best and most popular posts. This is a collection intended for you on the start of your journey. Take it in slowly and mindully, and have fun."];
     [self prepareTableHeaderWithText:@"The essential posts to get you started"];
     [AnalyticsManager reportNavigationToScreen:@"Starters Guide"];
 }

@@ -11,12 +11,12 @@
 
 @interface KGNUtilities : NSObject
 
-+ (UIColor*) primaryColor;
++ (UIColor *)primaryColor;
 
-+ (NSDate *) dateFromFriendlyString: (NSString *)friendlyString;
++ (NSDate *)dateFromFriendlyString:(NSString *)friendlyString;
 
-+ (BOOL) isDateBeforeToday: (NSDate*) date;
++ (BOOL)isDateBeforeToday:(NSDate *)date;
 
-+ (NSString*)monthOfYearAsString: (NSInteger)monthOfYear;
++ (NSString *)monthOfYearAsString:(NSInteger)monthOfYear;
 
 @end

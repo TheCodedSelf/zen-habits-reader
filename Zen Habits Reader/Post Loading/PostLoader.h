@@ -6,14 +6,15 @@
 //  Copyright © 2015 Keegan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "TFHpple.h"
 #import "PersistenceManager.h"
+#import "TFHpple.h"
+#import <Foundation/Foundation.h>
 
 @interface PostLoader : NSObject
 
-+ (void) loadPosts;
-+ (NSString*) getPostBodyHTMLFromPostUrl: (NSString*) postURL andTitle: (NSString*) postTitle;
-+ (BOOL)downloadAllPostsAfterDate: (NSDate*)dateToCheck;
++ (void)loadPosts;
++ (NSString *)getPostBodyHTMLFromPostUrl:(NSString *)postURL
+                                andTitle:(NSString *)postTitle;
++ (BOOL)downloadAllPostsAfterDate:(NSDate *)dateToCheck;
 
 @end

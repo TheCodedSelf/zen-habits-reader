@@ -9,5 +9,5 @@
 #import "PostsViewController.h"
 
 @interface BestPostsViewController : PostsViewController
-@property (nonatomic, strong) NSString* currentYearString;
+@property(nonatomic, strong) NSString *currentYearString;
 @end

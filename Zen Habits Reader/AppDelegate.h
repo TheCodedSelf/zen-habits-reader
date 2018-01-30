@@ -10,7 +10,6 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (nonatomic) BOOL busyLoadingPosts;
+@property(strong, nonatomic) UIWindow *window;
+@property(nonatomic) BOOL busyLoadingPosts;
 @end
-

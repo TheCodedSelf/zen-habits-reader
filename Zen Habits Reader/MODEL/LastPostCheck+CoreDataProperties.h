@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LastPostCheck (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSDate *lastCheckDate;
+@property(nullable, nonatomic, retain) NSDate *lastCheckDate;
 
 @end
 

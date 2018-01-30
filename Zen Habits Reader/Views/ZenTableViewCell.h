@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ZenTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

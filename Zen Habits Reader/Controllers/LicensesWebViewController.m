@@ -9,20 +9,20 @@
 #import "LicensesWebViewController.h"
 
 @interface LicensesWebViewController ()
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property(strong, nonatomic) IBOutlet UIWebView *webView;
 @end
 
 @implementation LicensesWebViewController
 
-- (void)viewDidLoad
-    {
-    [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    NSURL* licenseUrl = [NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"OpenSource" ofType:@"rtf"]];
-     NSURLRequest *request = [NSURLRequest requestWithURL:licenseUrl];
-     [self.webView loadRequest:request];
-     [AnalyticsManager reportNavigationToScreen:@"Licenses Web View"];
-    }
-
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  self.automaticallyAdjustsScrollViewInsets = NO;
+  NSURL *licenseUrl = [NSURL
+      fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"OpenSource"
+                                                      ofType:@"rtf"]];
+  NSURLRequest *request = [NSURLRequest requestWithURL:licenseUrl];
+  [self.webView loadRequest:request];
+  [AnalyticsManager reportNavigationToScreen:@"Licenses Web View"];
+}
 
 @end

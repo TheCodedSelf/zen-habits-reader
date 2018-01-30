@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
-@interface InAppPurchasesManager : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
+@interface InAppPurchasesManager
+    : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 @property BOOL TransactionInProgress;
 
-+ (InAppPurchasesManager *) sharedInstance;
-- (void) initialiseInViewController:(UIViewController*)viewController;
-- (BOOL) allPostsAreAvailable;
-- (void) presentPurchaseDialogInViewController: (UIViewController*)viewController;
++ (InAppPurchasesManager *)sharedInstance;
+- (void)initialiseInViewController:(UIViewController *)viewController;
+- (BOOL)allPostsAreAvailable;
+- (void)presentPurchaseDialogInViewController:
+    (UIViewController *)viewController;
 - (void)restoreCompletedTransactions;
 
 @end

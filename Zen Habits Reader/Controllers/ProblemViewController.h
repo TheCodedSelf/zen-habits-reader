@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProblemViewController : UIViewController
-- (void) configureWithHeader:(NSString*)header andSubheader:(NSString*)subheader;
+- (void)configureWithHeader:(NSString *)header
+               andSubheader:(NSString *)subheader;
 @end

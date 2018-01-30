@@ -6,14 +6,16 @@
 //  Copyright © 2015 Keegan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 #import "PersistenceManager.h"
 #import "Year.h"
 #import "ZenHabitsTableViewController.h"
+#import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
-@interface ArchiveYearsViewControllerTableViewController : ZenHabitsTableViewController
+@interface ArchiveYearsViewControllerTableViewController
+    : ZenHabitsTableViewController
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSString *selectedYearString;
+@property(nonatomic, retain)
+    NSFetchedResultsController *fetchedResultsController;
+@property(nonatomic, retain) NSString *selectedYearString;
 @end

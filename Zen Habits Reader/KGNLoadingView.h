@@ -10,8 +10,8 @@
 
 @interface KGNLoadingView : UIView
 
-+ (KGNLoadingView*) createLoadingViewInView: (UIView *)view;
++ (KGNLoadingView *)createLoadingViewInView:(UIView *)view;
 
-- (void) remove;
+- (void)remove;
 
 @end

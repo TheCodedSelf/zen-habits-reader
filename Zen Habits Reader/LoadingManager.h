@@ -10,8 +10,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoadingManager : NSObject
-@property (nonatomic) BOOL isBusyLoading;
-- (void) displayLoadingScreenInView: (UIView*) view;
-+ (LoadingManager *) sharedInstance;
-- (void) removeCurrentLoadingScreen;
+@property(nonatomic) BOOL isBusyLoading;
+- (void)displayLoadingScreenInView:(UIView *)view;
++ (LoadingManager *)sharedInstance;
+- (void)removeCurrentLoadingScreen;
 @end
