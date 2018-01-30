@@ -1079,7 +1079,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keeganrush.Zen-Habits-ReaderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zen Habits Reader.app/Zen Habits Reader";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zen Breath.app/Zen Breath";
 			};
 			name = Debug;
 		};
@@ -1092,7 +1092,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keeganrush.Zen-Habits-ReaderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zen Habits Reader.app/Zen Habits Reader";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zen Breath.app/Zen Breath";
 			};
 			name = Release;
 		};
