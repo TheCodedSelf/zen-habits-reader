@@ -58,10 +58,8 @@ self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 
 - (void) viewDidAppear:(BOOL)animated
     {
-    NSUInteger index = [[self allCellsArray] indexOfObject:NewPosts];
-    NSIndexPath* path = [NSIndexPath indexPathForRow:index inSection:0];
-    // Done in order to refresh the badge
-    [self tableView:self.tableView cellForRowAtIndexPath:path];
+        [super viewDidAppear:animated];
+        [self.tableView reloadData];
     }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
