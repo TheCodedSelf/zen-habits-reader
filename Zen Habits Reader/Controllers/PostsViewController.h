@@ -15,9 +15,9 @@
 @interface PostsViewController : ZenHabitsTableViewController
 @property(nonatomic) PostHeader *selectedPostHeader;
 @property(nonatomic, retain)
-    NSFetchedResultsController *fetchedResultsController;
+    NSFetchedResultsController<PostHeader *> *fetchedResultsController;
 
-@property (NS_NONATOMIC_IOSONLY, readonly, strong) NSFetchedResultsController *createFetchedResultsController;
+- (NSFetchedResultsController<PostHeader *> *)createFetchedResultsController;
 
 extern NSString *const ToIndividualPostSegue;
 
