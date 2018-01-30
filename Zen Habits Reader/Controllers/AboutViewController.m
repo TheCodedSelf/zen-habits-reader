@@ -27,7 +27,6 @@ typedef NS_ENUM(NSInteger, AboutTableSections) { Purchases, ContactUs, Other };
 @implementation AboutViewController
 
 NSString *const ToLicensesSegueIdentifier = @"AboutToLicensesSegue";
-// NSString* const RestorePurchaseAlertHeader = @"Restore Purchase"
 
 - (void)viewDidLoad {
   self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
@@ -146,7 +145,6 @@ NSString *const ToLicensesSegueIdentifier = @"AboutToLicensesSegue";
 
 #pragma mark - Delegates
 
-// Then implement the delegate method
 - (void)mailComposeController:(MFMailComposeViewController *)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError *)error {

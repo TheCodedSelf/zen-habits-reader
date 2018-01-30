@@ -20,9 +20,8 @@
     NSError* error;
     if (![self.fetchedResultsController performFetch:&error])
         {
-        // TODO: Update to handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        exit(-1);  // Fail
+        exit(-1);
         }
     
     [self prepareTableHeaderWithText:@"The essential posts to get you started"];
