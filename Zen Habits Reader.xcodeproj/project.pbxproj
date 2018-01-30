@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44AADFD182376E65DF72164F /* libPods-Zen Habits ReaderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EB69D6F9A949B9881528DC /* libPods-Zen Habits ReaderUITests.a */; };
 		830B9E6A1BB9B1FD00A5E0FD /* KGNConcurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B9E691BB9B1FD00A5E0FD /* KGNConcurrencyManager.m */; };
 		830CC86D1BB3FB2700FD4D30 /* PostHeader+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CC8621BB3FB2600FD4D30 /* PostHeader+CoreDataProperties.m */; };
 		830CC86E1BB3FB2700FD4D30 /* PostHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CC8641BB3FB2600FD4D30 /* PostHeader.m */; };
@@ -73,7 +74,8 @@
 		83EF3AC61C3192A50065CA47 /* OpenSource.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 83EF3AC51C3192A50065CA47 /* OpenSource.rtf */; };
 		83EF3AC91C3195920065CA47 /* LicensesWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF3AC81C3195920065CA47 /* LicensesWebViewController.m */; };
 		83EF7B9C1BB7D62200A874FA /* PostWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EF7B9B1BB7D62200A874FA /* PostWebViewController.m */; };
-		9008478441C2D595E12B4FEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D28251E14F068EBF747E430 /* libPods.a */; };
+		9F0DE2696B34F67F943AE1F3 /* libPods-Zen Habits ReaderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF861D4E363572A15AEBC16 /* libPods-Zen Habits ReaderTests.a */; };
+		A0DC9FED4391BEA3686C8FA0 /* libPods-Zen Habits Reader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FC8341ADA19EE01E44F5AB /* libPods-Zen Habits Reader.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +96,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		29E01B3564434BAB47041923 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		32FC8341ADA19EE01E44F5AB /* libPods-Zen Habits Reader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Zen Habits Reader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FF0CDE5601BC44C58943F0 /* Pods-Zen Habits ReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zen Habits ReaderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zen Habits ReaderUITests/Pods-Zen Habits ReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		44EB69D6F9A949B9881528DC /* libPods-Zen Habits ReaderUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Zen Habits ReaderUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B431532154B7B126767A98F /* Pods-Zen Habits ReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zen Habits ReaderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zen Habits ReaderUITests/Pods-Zen Habits ReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		830B9E681BB9B1FD00A5E0FD /* KGNConcurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGNConcurrencyManager.h; path = Concurrency/KGNConcurrencyManager.h; sourceTree = "<group>"; };
 		830B9E691BB9B1FD00A5E0FD /* KGNConcurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGNConcurrencyManager.m; path = Concurrency/KGNConcurrencyManager.m; sourceTree = "<group>"; };
 		830CC8611BB3FB2600FD4D30 /* PostHeader+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PostHeader+CoreDataProperties.h"; path = "MODEL/PostHeader+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -206,8 +211,11 @@
 		83EF3AC81C3195920065CA47 /* LicensesWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LicensesWebViewController.m; path = Controllers/LicensesWebViewController.m; sourceTree = "<group>"; };
 		83EF7B9A1BB7D62200A874FA /* PostWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostWebViewController.h; path = Controllers/PostWebViewController.h; sourceTree = "<group>"; };
 		83EF7B9B1BB7D62200A874FA /* PostWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostWebViewController.m; path = Controllers/PostWebViewController.m; sourceTree = "<group>"; };
-		8D28251E14F068EBF747E430 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6B746CEF6835D74B9DD1C5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8AF861D4E363572A15AEBC16 /* libPods-Zen Habits ReaderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Zen Habits ReaderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A82896E666B12D468B80150D /* Pods-Zen Habits Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zen Habits Reader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zen Habits Reader/Pods-Zen Habits Reader.debug.xcconfig"; sourceTree = "<group>"; };
+		C5C11313C4D196170DFAF02D /* Pods-Zen Habits ReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zen Habits ReaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zen Habits ReaderTests/Pods-Zen Habits ReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CF7374FD1839139D2F6D9AA3 /* Pods-Zen Habits Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zen Habits Reader.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zen Habits Reader/Pods-Zen Habits Reader.release.xcconfig"; sourceTree = "<group>"; };
+		E7E67D04E6A6C9A86DC68DDF /* Pods-Zen Habits ReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zen Habits ReaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zen Habits ReaderTests/Pods-Zen Habits ReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +226,7 @@
 				8369B24A1C3AC86200B12F3A /* StoreKit.framework in Frameworks */,
 				836CB5CC1BAF15A700917751 /* CoreData.framework in Frameworks */,
 				836CB5CA1BAE764C00917751 /* libxml2.2.tbd in Frameworks */,
-				9008478441C2D595E12B4FEA /* libPods.a in Frameworks */,
+				A0DC9FED4391BEA3686C8FA0 /* libPods-Zen Habits Reader.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F0DE2696B34F67F943AE1F3 /* libPods-Zen Habits ReaderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,12 +242,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44AADFD182376E65DF72164F /* libPods-Zen Habits ReaderUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DA28FA4915420DEBE75A1AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32FC8341ADA19EE01E44F5AB /* libPods-Zen Habits Reader.a */,
+				8AF861D4E363572A15AEBC16 /* libPods-Zen Habits ReaderTests.a */,
+				44EB69D6F9A949B9881528DC /* libPods-Zen Habits ReaderUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		830B9E671BB9B1C900A5E0FD /* Concurrency */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,8 +327,8 @@
 				836CB5A51BAE66E600917751 /* Zen Habits ReaderTests */,
 				836CB5B01BAE66E600917751 /* Zen Habits ReaderUITests */,
 				836CB5871BAE66E600917751 /* Products */,
-				8A185126345F730B42103DFB /* Pods */,
-				E2520991252696408D0CF734 /* Frameworks */,
+				BE38E3B56B495B2119AD0D4E /* Pods */,
+				0DA28FA4915420DEBE75A1AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -494,21 +514,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		8A185126345F730B42103DFB /* Pods */ = {
+		BE38E3B56B495B2119AD0D4E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29E01B3564434BAB47041923 /* Pods.debug.xcconfig */,
-				D6B746CEF6835D74B9DD1C5E /* Pods.release.xcconfig */,
+				A82896E666B12D468B80150D /* Pods-Zen Habits Reader.debug.xcconfig */,
+				CF7374FD1839139D2F6D9AA3 /* Pods-Zen Habits Reader.release.xcconfig */,
+				C5C11313C4D196170DFAF02D /* Pods-Zen Habits ReaderTests.debug.xcconfig */,
+				E7E67D04E6A6C9A86DC68DDF /* Pods-Zen Habits ReaderTests.release.xcconfig */,
+				4B431532154B7B126767A98F /* Pods-Zen Habits ReaderUITests.debug.xcconfig */,
+				42FF0CDE5601BC44C58943F0 /* Pods-Zen Habits ReaderUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E2520991252696408D0CF734 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8D28251E14F068EBF747E430 /* libPods.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,11 +534,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 836CB5B61BAE66E600917751 /* Build configuration list for PBXNativeTarget "Zen Habits Reader" */;
 			buildPhases = (
-				1C21FA71391596E3E199160E /* Check Pods Manifest.lock */,
+				7237DF3E70D614020941C43A /* [CP] Check Pods Manifest.lock */,
 				836CB5821BAE66E600917751 /* Sources */,
 				836CB5831BAE66E600917751 /* Frameworks */,
 				836CB5841BAE66E600917751 /* Resources */,
-				8CDADCE09D50E9597CCF8E06 /* Copy Pods Resources */,
+				BB168A1B1B22DB5E70C8FC66 /* [CP] Embed Pods Frameworks */,
+				8084328D96997FCD89DB073C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -537,9 +554,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 836CB5B91BAE66E600917751 /* Build configuration list for PBXNativeTarget "Zen Habits ReaderTests" */;
 			buildPhases = (
+				985A841B521804294A26FB67 /* [CP] Check Pods Manifest.lock */,
 				836CB59E1BAE66E600917751 /* Sources */,
 				836CB59F1BAE66E600917751 /* Frameworks */,
 				836CB5A01BAE66E600917751 /* Resources */,
+				DD6163FE52650A65228BDACC /* [CP] Embed Pods Frameworks */,
+				C33CA1C707BE1A202788E5EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -555,9 +575,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 836CB5BC1BAE66E600917751 /* Build configuration list for PBXNativeTarget "Zen Habits ReaderUITests" */;
 			buildPhases = (
+				26A95826A00D16406B64D318 /* [CP] Check Pods Manifest.lock */,
 				836CB5A91BAE66E600917751 /* Sources */,
 				836CB5AA1BAE66E600917751 /* Frameworks */,
 				836CB5AB1BAE66E600917751 /* Resources */,
+				05BAF39CA52D2BA22ACE641F /* [CP] Embed Pods Frameworks */,
+				61A1C019D8FA6ED1AF5773FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -575,7 +598,7 @@
 		836CB57E1BAE66E600917751 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Keegan;
 				TargetAttributes = {
 					836CB5851BAE66E600917751 = {
@@ -660,34 +683,148 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C21FA71391596E3E199160E /* Check Pods Manifest.lock */ = {
+		05BAF39CA52D2BA22ACE641F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zen Habits ReaderUITests/Pods-Zen Habits ReaderUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8CDADCE09D50E9597CCF8E06 /* Copy Pods Resources */ = {
+		26A95826A00D16406B64D318 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zen Habits ReaderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61A1C019D8FA6ED1AF5773FE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zen Habits ReaderUITests/Pods-Zen Habits ReaderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7237DF3E70D614020941C43A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zen Habits Reader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8084328D96997FCD89DB073C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zen Habits Reader/Pods-Zen Habits Reader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		985A841B521804294A26FB67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zen Habits ReaderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB168A1B1B22DB5E70C8FC66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zen Habits Reader/Pods-Zen Habits Reader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C33CA1C707BE1A202788E5EB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zen Habits ReaderTests/Pods-Zen Habits ReaderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD6163FE52650A65228BDACC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zen Habits ReaderTests/Pods-Zen Habits ReaderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -805,13 +942,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -850,13 +995,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -883,7 +1036,7 @@
 		};
 		836CB5B71BAE66E600917751 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29E01B3564434BAB47041923 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A82896E666B12D468B80150D /* Pods-Zen Habits Reader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -901,7 +1054,7 @@
 		};
 		836CB5B81BAE66E600917751 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6B746CEF6835D74B9DD1C5E /* Pods.release.xcconfig */;
+			baseConfigurationReference = CF7374FD1839139D2F6D9AA3 /* Pods-Zen Habits Reader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -919,6 +1072,7 @@
 		};
 		836CB5BA1BAE66E600917751 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5C11313C4D196170DFAF02D /* Pods-Zen Habits ReaderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Zen Habits ReaderTests/Info.plist";
@@ -931,6 +1085,7 @@
 		};
 		836CB5BB1BAE66E600917751 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7E67D04E6A6C9A86DC68DDF /* Pods-Zen Habits ReaderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Zen Habits ReaderTests/Info.plist";
@@ -943,6 +1098,7 @@
 		};
 		836CB5BD1BAE66E600917751 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B431532154B7B126767A98F /* Pods-Zen Habits ReaderUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Zen Habits ReaderUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -955,6 +1111,7 @@
 		};
 		836CB5BE1BAE66E600917751 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42FF0CDE5601BC44C58943F0 /* Pods-Zen Habits ReaderUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Zen Habits ReaderUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
