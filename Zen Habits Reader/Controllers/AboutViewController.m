@@ -89,7 +89,7 @@ NSString *const ToLicensesSegueIdentifier = @"AboutToLicensesSegue";
     default:
       break;
     }
-  }
+  } break;
   case Other: {
     switch (indexPath.row) {
     case Licenses:
